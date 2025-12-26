@@ -28,15 +28,23 @@ function getHumanChoice() {
 function playRound(computerChoice, humanChoice) {
 	console.log(computerChoice);
 	console.log(humanChoice);
-	if (
-		(computerChoice === 'paper' && humanChoice === 'paper') ||
-		(computerChoice === 'rock' && humanChoice === 'rock') ||
-		(computerChoice === 'scissors' && humanChoice === 'scissors')
-	) {
+	if (computerChoice === 'rock' && humanChoice === 'rock') {
 		computerScore = computerScore;
 		humanScore = humanScore;
 		console.log(
-			`Draw, current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			`Draw, you both choose rock. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+		);
+	} else if (computerChoice === 'paper' && humanChoice === 'paper') {
+		computerScore = computerScore;
+		humanScore = humanScore;
+		console.log(
+			`Draw, you both choose paper. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+		);
+	} else if (computerChoice === 'scissors' && humanChoice === 'scissors') {
+		computerScore = computerScore;
+		humanScore = humanScore;
+		console.log(
+			`Draw, you both choose scissors. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
 		);
 	}
 }
