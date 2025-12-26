@@ -1,8 +1,6 @@
 // choice
 let computerChoice = getComputerChoice();
-console.log(computerChoice);
 let humanChoice = getHumanChoice();
-console.log(humanChoice);
 
 // score
 let computerScore = 0;
@@ -21,11 +19,26 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-	let randomChoice = prompt(
+	const randomChoice = prompt(
 		'Choose between Rock, Paper or Scissors'
 	).toLocaleLowerCase();
-
 	return randomChoice;
 }
 
-function playRound(computerChoice, humanChoice) {}
+function playRound(computerChoice, humanChoice) {
+	console.log(computerChoice);
+	console.log(humanChoice);
+	if (
+		(computerChoice === 'paper' && humanChoice === 'paper') ||
+		(computerChoice === 'rock' && humanChoice === 'rock') ||
+		(computerChoice === 'scissors' && humanChoice === 'scissors')
+	) {
+		computerScore = computerScore;
+		humanScore = humanScore;
+		console.log(
+			`Draw, current score is ${computerScore} for Computer and ${humanScore} for Human.`
+		);
+	}
+}
+
+playRound(computerChoice, humanChoice);
