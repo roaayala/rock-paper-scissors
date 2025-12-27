@@ -1,6 +1,6 @@
 // choice
-const computerChoice = getComputerChoice();
-const humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+let humanChoice = getHumanChoice();
 
 // score
 let computerScore = 0;
@@ -25,88 +25,112 @@ function getHumanChoice() {
 	return randomChoice;
 }
 
-function playRound(computerChoice, humanChoice) {
-	// both rock
-	if (computerChoice === 'rock' && humanChoice === 'rock') {
-		computerScore = computerScore;
-		humanScore = humanScore;
-		console.log(
-			`Draw, you both choose rock. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
-		);
+function newChoices() {
+	computerChoice = getComputerChoice();
+	humanChoice = getHumanChoice();
+}
+
+function resetScores(computerScore, humanScore) {
+	computerScore = 0;
+	humanScore = 0;
+}
+
+function playGame() {
+	while (computerScore < 5 && humanScore < 5) {
+		playRound(computerChoice, humanChoice);
 	}
-	// both paper
-	else if (computerChoice === 'paper' && humanChoice === 'paper') {
-		computerScore = computerScore;
-		humanScore = humanScore;
-		console.log(
-			`Draw, you both choose paper. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
-		);
-	}
-	// both scissors
-	else if (computerChoice === 'scissors' && humanChoice === 'scissors') {
-		computerScore = computerScore;
-		humanScore = humanScore;
-		console.log(
-			`Draw, you both choose scissors. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
-		);
-	}
-	// r vs s
-	else if (computerChoice === 'rock' && humanChoice === 'scissors') {
-		computerScore++;
-		humanScore = humanScore;
-		console.log(
-			`Rock beat scissors, Computer won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
-		);
-	}
-	// p vs r
-	else if (computerChoice === 'paper' && humanChoice === 'rock') {
-		computerScore++;
-		humanScore = humanScore;
-		console.log(
-			`Paper beat rock, Computer won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
-		);
-	}
-	// s vs p
-	else if (computerChoice === 'scissors' && humanChoice === 'paper') {
-		computerScore++;
-		humanScore = humanScore;
-		console.log(
-			`Scissors beat paper, Computer won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
-		);
-	}
-	// s vs r
-	else if (computerChoice === 'scissors' && humanChoice === 'rock') {
-		computerScore = computerScore;
-		humanScore++;
-		console.log(
-			`Scissors beat rock, Human won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
-		);
-	}
-	// r vs p
-	else if (computerChoice === 'rock' && humanChoice === 'paper') {
-		computerScore = computerScore;
-		humanScore++;
-		console.log(
-			`Rock beat paper, Human won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
-		);
-	}
-	// p vs s
-	else if (computerChoice === 'paper' && humanChoice === 'scissors') {
-		computerScore = computerScore;
-		humanScore++;
-		console.log(
-			`Paper beat scissors, Human won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
-		);
+
+	if (computerScore === 5) {
+		console.log('Computer won.');
+		return;
 	} else {
-		console.log(computerChoice);
-		console.log(humanChoice);
+		console.log('Human won.');
+		return;
+	}
+
+	function playRound(computerChoice, humanChoice) {
+		// both rock
+		if (computerChoice === 'rock' && humanChoice === 'rock') {
+			computerScore = computerScore;
+			humanScore = humanScore;
+			console.log(
+				`Draw, you both choose rock. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			);
+			newChoices();
+		}
+		// both paper
+		else if (computerChoice === 'paper' && humanChoice === 'paper') {
+			computerScore = computerScore;
+			humanScore = humanScore;
+			console.log(
+				`Draw, you both choose paper. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			);
+			newChoices();
+		}
+		// both scissors
+		else if (computerChoice === 'scissors' && humanChoice === 'scissors') {
+			computerScore = computerScore;
+			humanScore = humanScore;
+			console.log(
+				`Draw, you both choose scissors. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			);
+			newChoices();
+		}
+		// r vs s
+		else if (computerChoice === 'rock' && humanChoice === 'scissors') {
+			computerScore++;
+			humanScore = humanScore;
+			console.log(
+				`Rock beat scissors, Computer won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			);
+			newChoices();
+		}
+		// p vs r
+		else if (computerChoice === 'paper' && humanChoice === 'rock') {
+			computerScore++;
+			humanScore = humanScore;
+			console.log(
+				`Paper beat rock, Computer won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			);
+			newChoices();
+		}
+		// s vs p
+		else if (computerChoice === 'scissors' && humanChoice === 'paper') {
+			computerScore++;
+			humanScore = humanScore;
+			console.log(
+				`Scissors beat paper, Computer won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			);
+			newChoices();
+		}
+		// s vs r
+		else if (computerChoice === 'scissors' && humanChoice === 'rock') {
+			computerScore = computerScore;
+			humanScore++;
+			console.log(
+				`Scissors beat rock, Human won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			);
+			newChoices();
+		}
+		// r vs p
+		else if (computerChoice === 'rock' && humanChoice === 'paper') {
+			computerScore = computerScore;
+			humanScore++;
+			console.log(
+				`Rock beat paper, Human won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			);
+			newChoices();
+		}
+		// p vs s
+		else if (computerChoice === 'paper' && humanChoice === 'scissors') {
+			computerScore = computerScore;
+			humanScore++;
+			console.log(
+				`Paper beat scissors, Human won. Current score is ${computerScore} for Computer and ${humanScore} for Human.`
+			);
+			newChoices();
+		}
 	}
 }
 
-playRound(computerChoice, humanChoice);
-
-// function playGame() {
-
-// }
-
-// playGame();
+playGame();
