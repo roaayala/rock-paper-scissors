@@ -1,11 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Rock, Paper and Scissors</title>
+
+		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
+		<div class="container">
+			<div class="scoreboard">
+				<span class="human-score"
+					>Human Score: <span id="human-score">0</span>
+				</span>
+
+				<span class="compute-score"
+					>Computer Score: <span id="computer-score">0</span></span
+				>
+			</div>
+
+			<div class="round">
+				<div class="human-choice">
+					<span id="human-choice">Rock</span>
+				</div>
+
+				<div class="computer-choice">
+					<span id="computer-choice">Rock</span>
+				</div>
+			</div>
+
+			<div class="choices">
+				<button class="btn" id="rock">Rock</button>
+				<button class="btn" id="paper">Paper</button>
+				<button class="btn" id="scissors">Scissors</button>
+			</div>
+
+			<button class="btn">Reset</button>
+		</div>
 		<script src="./index.js"></script>
 	</body>
 </html>
