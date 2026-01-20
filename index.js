@@ -1,11 +1,3 @@
-// choice
-// let computerChoice = getComputerChoice();
-// let humanChoice = getHumanChoice();
-
-// score
-let computerScore = 0;
-let humanScore = 0;
-
 function getComputerChoice() {
 	const randomChoice = Math.trunc(Math.random() * 3 + 1);
 	switch (randomChoice) {
@@ -134,3 +126,26 @@ function resetScores(computerScore, humanScore) {
 // }
 
 // playGame();
+
+// scoreboard
+const humanScore = document.querySelector('#human-score');
+const computerScore = document.querySelector('#computer-score');
+
+// round choices
+const humanChoice = document.querySelector('#human-choice');
+const computerChoice = document.querySelector('#computer-choice');
+
+// choices button
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+// reset button
+const resetButton = document.querySelector('#btn-reset');
+
+const humanChoices = [rock, paper, scissors];
+humanChoices.forEach((choice) => {
+	choice.addEventListener('click', () => {
+		humanChoice.textContent = choice.textContent;
+	});
+});
