@@ -10,13 +10,6 @@ function getComputerChoice() {
 	}
 }
 
-function getHumanChoice() {
-	const randomChoice = prompt(
-		'Choose between Rock, Paper or Scissors',
-	).toLocaleLowerCase();
-	return randomChoice;
-}
-
 function newChoices() {
 	computerChoice = getComputerChoice();
 	humanChoice = getHumanChoice();
@@ -146,6 +139,8 @@ const resetButton = document.querySelector('#btn-reset');
 const humanChoices = [rock, paper, scissors];
 humanChoices.forEach((choice) => {
 	choice.addEventListener('click', () => {
-		humanChoice.textContent = choice.textContent;
+		humanChoice.textContent = choice.textContent.toUpperCase();
+
+		computerChoice.textContent = getComputerChoice().toUpperCase();
 	});
 });
