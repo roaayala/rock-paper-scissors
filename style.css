@@ -49,3 +49,7 @@ body {
 	display: inline-block;
 	cursor: pointer;
 }
+
+.lose {
+	text-decoration: line-through;
+}
