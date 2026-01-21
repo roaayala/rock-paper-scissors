@@ -47,38 +47,28 @@ function computerWin() {
 }
 
 function playRound(humanChoice, computerChoice) {
+	// DRAW
 	if (humanChoice === computerChoice) {
 		draw();
+		return;
 	}
 
-	// r vs s
-	if (humanChoice === 'ROCK' && computerChoice === 'SCISSORS') {
-		humanWin();
+	// ROCK
+	if (humanChoice === 'ROCK') {
+		if (computerChoice === 'SCISSORS') humanWin();
+		else computerWin();
 	}
 
-	// p vs r
-	if (humanChoice === 'PAPER' && computerChoice === 'ROCK') {
-		humanWin();
+	// PAPER
+	if (humanChoice === 'PAPER') {
+		if (computerChoice === 'ROCK') humanWin();
+		else computerWin();
 	}
 
-	// s vs p
-	if (humanChoice === 'SCISSORS' && computerChoice === 'PAPER') {
-		humanWin();
-	}
-
-	// s vs r
-	if (humanChoice === 'SCISSORS' && computerChoice === 'ROCK') {
-		computerWin();
-	}
-
-	// r vs p
-	if (humanChoice === 'ROCK' && computerChoice === 'PAPER') {
-		computerWin();
-	}
-
-	// p vs s
-	if (humanChoice === 'PAPER' && computerChoice === 'SCISSORS') {
-		computerWin();
+	// SCISSORS
+	if (humanChoice === 'SCISSORS') {
+		if (computerChoice === 'PAPER') humanWin();
+		else computerWin();
 	}
 }
 
