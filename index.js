@@ -33,32 +33,21 @@ function getComputerChoice() {
 }
 
 function draw() {
-	updateScore(humanScoreBoard, computerScoreBoard);
+	updateScore();
 }
 
 function humanWin() {
 	humanScore++;
-	updateScore(humanScoreBoard, computerScoreBoard);
+	updateScore();
 }
 
 function computerWin() {
 	computerScore++;
-	updateScore(humanScoreBoard, computerScoreBoard);
+	updateScore();
 }
 
 function playRound(humanChoice, computerChoice) {
-	// both rock
-	if (humanChoice === 'ROCK' && computerChoice === 'ROCK') {
-		draw();
-	}
-
-	// both paper
-	if (humanChoice === 'PAPER' && computerChoice === 'PAPER') {
-		draw();
-	}
-
-	// both scissors
-	if (humanChoice === 'SCISSORS' && computerChoice === 'SCISSORS') {
+	if (humanChoice === computerChoice) {
 		draw();
 	}
 
@@ -93,9 +82,19 @@ function playRound(humanChoice, computerChoice) {
 	}
 }
 
-function updateScore(hScore, cScore) {
-	hScore.textContent = humanScore;
-	cScore.textContent = computerScore;
+function updateScore() {
+	humanScoreBoard.textContent = humanScore;
+	computerScoreBoard.textContent = computerScore;
+}
+
+function reset() {
+	humanScore = 0;
+	computerScore = 0;
+	humanScoreBoard.textContent = humanScore;
+	computerScoreBoard.textContent = computerScore;
+
+	humanChoiceBoard.textContent = '-';
+	computerChoiceBoard.textContent = '-';
 }
 
 const humanChoices = [rock, paper, scissors];
@@ -108,7 +107,7 @@ humanChoices.forEach((choice) => {
 		computerChoiceBoard.textContent = computerChoice;
 
 		playRound(humanChoice, computerChoice);
-		console.log(humanScore);
-		console.log(computerScore);
 	});
 });
+
+resetButton.addEventListener('click', reset);
