@@ -24,76 +24,72 @@ function getComputerChoice() {
 	const randomChoice = Math.trunc(Math.random() * 3 + 1);
 	switch (randomChoice) {
 		case 1:
-			return 'rock';
+			return 'ROCK';
 		case 2:
-			return 'paper';
+			return 'PAPER';
 		case 3:
-			return 'scissors';
+			return 'SCISSORS';
 	}
 }
 
-function draw(hScore, cScore) {
-	hScore = hScore;
-	cScore = cScore;
+function draw() {
 	updateScore(humanScoreBoard, computerScoreBoard);
 }
 
-function humanWin(hScore, cScore) {
-	hScore++;
-	cScore = cScore;
+function humanWin() {
+	humanScore++;
 	updateScore(humanScoreBoard, computerScoreBoard);
 }
 
-function computerWin(hScore, cScore) {
-	hScore = hScore;
-	cScore++;
+function computerWin() {
+	computerScore++;
 	updateScore(humanScoreBoard, computerScoreBoard);
 }
 
 function playRound(humanChoice, computerChoice) {
 	// both rock
 	if (humanChoice === 'ROCK' && computerChoice === 'ROCK') {
-		draw(humanScore, computerScore);
+		draw();
 	}
 
 	// both paper
 	if (humanChoice === 'PAPER' && computerChoice === 'PAPER') {
-		draw(humanScore, computerScore);
+		draw();
 	}
 
 	// both scissors
-	if (humanChoice === 'scissors' && computerChoice === 'scissors') {
-		draw(humanScore, computerScore);
+	if (humanChoice === 'SCISSORS' && computerChoice === 'SCISSORS') {
+		draw();
 	}
 
 	// r vs s
-	if (humanChoice === 'rock' && computerChoice === 'scissors') {
-		humanWin(humanScore, computerScore);
+	if (humanChoice === 'ROCK' && computerChoice === 'SCISSORS') {
+		humanWin();
 	}
 
 	// p vs r
-	if (humanChoice === 'paper' && computerChoice === 'rock') {
-		humanWin(humanScore, computerScore);
+	if (humanChoice === 'PAPER' && computerChoice === 'ROCK') {
+		humanWin();
 	}
 
 	// s vs p
-	if (humanChoice === 'scissors' && computerChoice === 'paper') {
-		humanWin(humanScore, computerScore);
+	if (humanChoice === 'SCISSORS' && computerChoice === 'PAPER') {
+		humanWin();
 	}
 
 	// s vs r
-	if (humanChoice === 'scissors' && computerChoice === 'rock') {
-		computerWin(humanScore, computerScore);
+	if (humanChoice === 'SCISSORS' && computerChoice === 'ROCK') {
+		computerWin();
 	}
 
 	// r vs p
-	if (humanChoice === 'rock' && computerChoice === 'paper') {
-		computerWin(humanScore, computerScore);
+	if (humanChoice === 'ROCK' && computerChoice === 'PAPER') {
+		computerWin();
 	}
 
 	// p vs s
-	if (humanChoice === 'paper' && computerChoice === 'scissors') {
-		computerWin(humanScore, computerScore);
+	if (humanChoice === 'PAPER' && computerChoice === 'SCISSORS') {
+		computerWin();
 	}
 }
 
@@ -106,9 +102,9 @@ const humanChoices = [rock, paper, scissors];
 humanChoices.forEach((choice) => {
 	choice.addEventListener('click', () => {
 		const humanChoice = choice.textContent.toUpperCase();
-		humanChoiceBoard.textContent = humanChoice;
+		const computerChoice = getComputerChoice();
 
-		const computerChoice = getComputerChoice().toUpperCase();
+		humanChoiceBoard.textContent = humanChoice;
 		computerChoiceBoard.textContent = computerChoice;
 
 		playRound(humanChoice, computerChoice);
