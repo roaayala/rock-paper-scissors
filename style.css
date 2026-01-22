@@ -1,0 +1,55 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	background-color: #f3f3f3;
+	padding: 4rem;
+	min-width: 500px;
+
+	text-align: center;
+}
+
+.scoreboard {
+	display: flex;
+	justify-content: center;
+	gap: 4rem;
+	margin-bottom: 1rem;
+}
+
+.roundboard {
+	display: flex;
+	justify-content: center;
+	gap: 4rem;
+	margin-bottom: 1rem;
+}
+
+.choices {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.btn {
+	border: 1px solid black;
+	padding: 0.25rem 0.75rem;
+	font-family: inherit;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.lose {
+	text-decoration: line-through;
+}
