@@ -90,13 +90,18 @@ function reset() {
 const humanChoices = [rock, paper, scissors];
 humanChoices.forEach((choice) => {
 	choice.addEventListener('click', () => {
-		const humanChoice = choice.textContent.toUpperCase();
-		const computerChoice = getComputerChoice();
+		if (humanScore === 5) {
+			console.log(`Human win!`);
+		} else if (computerScore === 5) {
+			console.log(`Computer win!`);
+		} else {
+			const humanChoice = choice.textContent.toUpperCase();
+			const computerChoice = getComputerChoice();
 
-		humanChoiceBoard.textContent = humanChoice;
-		computerChoiceBoard.textContent = computerChoice;
-
-		playRound(humanChoice, computerChoice);
+			humanChoiceBoard.textContent = humanChoice;
+			computerChoiceBoard.textContent = computerChoice;
+			playRound(humanChoice, computerChoice);
+		}
 	});
 });
 
